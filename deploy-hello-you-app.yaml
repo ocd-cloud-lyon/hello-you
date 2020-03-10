@@ -1,19 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-you-deploy
+  name: $DeployName
+  namespace : $NameSpace
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: hello-you
+      app: $APP_NAME
   template:
     metadata:
       labels:
-        app: hello-you
+        app: $APP_NAME
     spec:
       containers:
         - name: hello-you
-          image: 573329840855.dkr.ecr.eu-west-3.amazonaws.com/ocd-cloud-lyon:$BUILD_NUMBER
+          image: 573329840855.dkr.ecr.eu-west-3.amazonaws.com/$DockImageName:$env.BUILD_NUMBER
           ports:
             - containerPort: 80
