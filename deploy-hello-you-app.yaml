@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: hello-you
-          image: 573329840855.dkr.ecr.eu-west-3.amazonaws.com/$DockImageName:$env.BUILD_NUMBER
+          image: 573329840855.dkr.ecr.eu-west-3.amazonaws.com/$IMAGEtoDEPLOY
           ports:
             - containerPort: 80
